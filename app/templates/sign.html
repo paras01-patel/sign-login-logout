@@ -1,3 +1,4 @@
+
 {% block title %}Signup Page{% endblock %}
 
 {% block content %}
@@ -12,7 +13,7 @@
 }
 
 body{
-    background: #f4f6f9;
+    background: linear-gradient(135deg,#1b5e20,#43a047);
 }
 
 .signup-container{
@@ -28,15 +29,48 @@ body{
     width: 420px;
     background: white;
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .signup-box h1{
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     color: #1b5e20;
+    font-size: 32px;
 }
+
+/* MESSAGE STYLE */
+
+.message-box{
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success{
+    background: #d4edda;
+    color: #155724;
+}
+
+.error{
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.warning{
+    background: #fff3cd;
+    color: #856404;
+}
+
+.info{
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+/* INPUT */
 
 .input-box{
     margin-bottom: 20px;
@@ -51,20 +85,24 @@ body{
 
 .input-box input{
     width: 100%;
-    padding: 12px;
+    padding: 13px;
     border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
     font-size: 15px;
+    transition: 0.3s;
 }
 
 .input-box input:focus{
     border-color: #1b5e20;
+    box-shadow: 0 0 5px rgba(27,94,32,0.3);
 }
+
+/* BUTTON */
 
 .signup-btn{
     width: 100%;
-    padding: 12px;
+    padding: 13px;
     border: none;
     background: #1b5e20;
     color: white;
@@ -72,21 +110,29 @@ body{
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+    font-weight: bold;
 }
 
 .signup-btn:hover{
     background: #2e7d32;
 }
 
+/* EXTRA */
+
 .extra-text{
     text-align: center;
     margin-top: 20px;
+    color: #555;
 }
 
 .extra-text a{
     text-decoration: none;
     color: #1b5e20;
     font-weight: bold;
+}
+
+.extra-text a:hover{
+    text-decoration: underline;
 }
 
 </style>
@@ -97,28 +143,52 @@ body{
 
         <h1>Create Account</h1>
 
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div class="message-box {{ message.tags }}">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
         <form method="POST">
 
             {% csrf_token %}
 
             <div class="input-box">
                 <label>Username</label>
-                <input type="text" name="username" placeholder="Enter Username">
+                <input type="text" 
+                    name="username" 
+                    placeholder="Enter Username"
+                    required>
             </div>
 
             <div class="input-box">
                 <label>Email</label>
-                <input type="email" name="email" placeholder="Enter Email">
+                <input type="email" 
+                    name="email" 
+                    placeholder="Enter Email"
+                    required>
             </div>
 
             <div class="input-box">
                 <label>Password</label>
-                <input type="password" name="password1" placeholder="Enter Password">
+                <input type="password" 
+                    name="password1" 
+                    placeholder="Enter Password"
+                    required>
             </div>
 
             <div class="input-box">
                 <label>Confirm Password</label>
-                <input type="password" name="password2" placeholder="Confirm Password">
+                <input type="password" 
+                    name="password2" 
+                    placeholder="Confirm Password"
+                    required>
             </div>
 
             <button type="submit" class="signup-btn">
