@@ -5,6 +5,8 @@ from django.contrib import messages
 
 # SIGNUP
 
+def home(req):
+    return render(req,'home.html')
 def sign(req):
 
     if req.method == "POST":
@@ -56,4 +58,21 @@ def sign(req):
 
 def login(req):
     if req.method=="POST":
+        username=req.POST.get('username')
+        password=req.POST.get('password')
+        
+        try:
+            user= User.objects.get(username=username)
+            if user.check_password(password):
+                req.session['username']=user.username
+                messages.success(req,"successfully login ")
+                return redirect('home')
+            
+            else:
+                messages.error(req,"wrong password")
+                return redirect('login')
+        except:
+            messages.error(req,"user not found")
+            return redirect("login")
+        
     return render(req, "login.html")
