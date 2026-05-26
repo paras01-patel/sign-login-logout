@@ -1,0 +1,139 @@
+{% block title %}Signup Page{% endblock %}
+
+{% block content %}
+
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: #f4f6f9;
+}
+
+.signup-container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.signup-box{
+    width: 420px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.signup-box h1{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1b5e20;
+}
+
+.input-box{
+    margin-bottom: 20px;
+}
+
+.input-box label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+}
+
+.input-box input:focus{
+    border-color: #1b5e20;
+}
+
+.signup-btn{
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #1b5e20;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.signup-btn:hover{
+    background: #2e7d32;
+}
+
+.extra-text{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.extra-text a{
+    text-decoration: none;
+    color: #1b5e20;
+    font-weight: bold;
+}
+
+</style>
+
+<div class="signup-container">
+
+    <div class="signup-box">
+
+        <h1>Create Account</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="input-box">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Enter Username">
+            </div>
+
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter Email">
+            </div>
+
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" name="password1" placeholder="Enter Password">
+            </div>
+
+            <div class="input-box">
+                <label>Confirm Password</label>
+                <input type="password" name="password2" placeholder="Confirm Password">
+            </div>
+
+            <button type="submit" class="signup-btn">
+                Signup
+            </button>
+
+        </form>
+
+        <div class="extra-text">
+            Already have an account?
+            <a href="/login/">Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
