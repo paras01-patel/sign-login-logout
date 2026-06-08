@@ -1,4 +1,3 @@
-
 {% block title %}Signup Page{% endblock %}
 
 {% block content %}
@@ -6,133 +5,225 @@
 <style>
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    background: linear-gradient(135deg,#1b5e20,#43a047);
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    overflow-x:hidden;
 }
+
+/* BACKGROUND EFFECT */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    top:-150px;
+    left:-120px;
+    filter:blur(10px);
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:rgba(255,255,255,0.06);
+    border-radius:50%;
+    bottom:-120px;
+    right:-100px;
+    filter:blur(10px);
+}
+
+/* MAIN CONTAINER */
 
 .signup-container{
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    position:relative;
+    z-index:1;
 }
+
+/* SIGNUP BOX */
 
 .signup-box{
-    width: 420px;
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width:430px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+    padding:45px 35px;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+    animation:fadeIn 0.8s ease;
 }
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* HEADING */
 
 .signup-box h1{
-    text-align: center;
-    margin-bottom: 25px;
-    color: #1b5e20;
-    font-size: 32px;
+    text-align:center;
+    margin-bottom:10px;
+    color:white;
+    font-size:36px;
+    font-weight:700;
 }
 
-/* MESSAGE STYLE */
+.signup-subtitle{
+    text-align:center;
+    color:#ddd;
+    margin-bottom:30px;
+    font-size:15px;
+}
+
+/* MESSAGE BOX */
 
 .message-box{
-    padding: 12px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
+    padding:14px;
+    margin-bottom:20px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:600;
+    font-size:14px;
 }
 
 .success{
-    background: #d4edda;
-    color: #155724;
+    background:#d4edda;
+    color:#155724;
 }
 
 .error{
-    background: #f8d7da;
-    color: #721c24;
+    background:#f8d7da;
+    color:#721c24;
 }
 
 .warning{
-    background: #fff3cd;
-    color: #856404;
+    background:#fff3cd;
+    color:#856404;
 }
 
 .info{
-    background: #d1ecf1;
-    color: #0c5460;
+    background:#d1ecf1;
+    color:#0c5460;
 }
 
-/* INPUT */
+/* INPUT AREA */
 
 .input-box{
-    margin-bottom: 20px;
+    margin-bottom:22px;
 }
 
 .input-box label{
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
+    display:block;
+    margin-bottom:8px;
+    color:white;
+    font-size:15px;
+    font-weight:600;
 }
 
 .input-box input{
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    font-size: 15px;
-    transition: 0.3s;
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,0.15);
+    color:white;
+    font-size:15px;
+    border:1px solid rgba(255,255,255,0.15);
+    transition:0.3s;
+}
+
+.input-box input::placeholder{
+    color:#dcdcdc;
 }
 
 .input-box input:focus{
-    border-color: #1b5e20;
-    box-shadow: 0 0 5px rgba(27,94,32,0.3);
+    background:rgba(255,255,255,0.22);
+    border-color:#4caf50;
+    box-shadow:0 0 12px rgba(76,175,80,0.5);
+    transform:scale(1.01);
 }
 
 /* BUTTON */
 
 .signup-btn{
-    width: 100%;
-    padding: 13px;
-    border: none;
-    background: #1b5e20;
-    color: white;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: bold;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#00c853,#43a047);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:10px;
+    box-shadow:0 6px 15px rgba(0,200,83,0.3);
 }
 
 .signup-btn:hover{
-    background: #2e7d32;
+    transform:translateY(-3px);
+    background:linear-gradient(135deg,#00e676,#2e7d32);
+    box-shadow:0 10px 20px rgba(0,200,83,0.45);
 }
 
-/* EXTRA */
+/* EXTRA TEXT */
 
 .extra-text{
-    text-align: center;
-    margin-top: 20px;
-    color: #555;
+    text-align:center;
+    margin-top:25px;
+    color:#eee;
+    font-size:15px;
 }
 
 .extra-text a{
-    text-decoration: none;
-    color: #1b5e20;
-    font-weight: bold;
+    color:#00e676;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
 }
 
 .extra-text a:hover{
-    text-decoration: underline;
+    color:white;
+    text-decoration:underline;
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+    .signup-box{
+        width:100%;
+        padding:35px 25px;
+    }
+
+    .signup-box h1{
+        font-size:30px;
+    }
+
 }
 
 </style>
@@ -142,6 +233,10 @@ body{
     <div class="signup-box">
 
         <h1>Create Account</h1>
+
+        <p class="signup-subtitle">
+            Signup and start your journey with us
+        </p>
 
         {% if messages %}
 
@@ -161,45 +256,49 @@ body{
 
             <div class="input-box">
                 <label>Username</label>
-                <input type="text" 
-                    name="username" 
-                    placeholder="Enter Username"
+                <input 
+                    type="text"
+                    name="username"
+                    placeholder="Enter your username"
                     required>
             </div>
 
             <div class="input-box">
-                <label>Email</label>
-                <input type="email" 
-                    name="email" 
-                    placeholder="Enter Email"
+                <label>Email Address</label>
+                <input 
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
                     required>
             </div>
 
             <div class="input-box">
                 <label>Password</label>
-                <input type="password" 
-                    name="password1" 
-                    placeholder="Enter Password"
+                <input 
+                    type="password"
+                    name="password1"
+                    placeholder="Create password"
                     required>
             </div>
 
             <div class="input-box">
                 <label>Confirm Password</label>
-                <input type="password" 
-                    name="password2" 
-                    placeholder="Confirm Password"
+                <input 
+                    type="password"
+                    name="password2"
+                    placeholder="Confirm password"
                     required>
             </div>
 
             <button type="submit" class="signup-btn">
-                Signup
+                Create Account
             </button>
 
         </form>
 
         <div class="extra-text">
             Already have an account?
-            <a href="/login/">Login</a>
+            <a href="/login/">Login Here</a>
         </div>
 
     </div>
