@@ -7,10 +7,10 @@ from django.contrib import messages
 
 def home(req):
     return render(req,'home.html')
+
+
 def sign(req):
-
     if req.method == "POST":
-
         username = req.POST.get('username')
         email = req.POST.get('email')
         password1 = req.POST.get('password1')
