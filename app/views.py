@@ -8,6 +8,9 @@ from django.contrib import messages
 def home(req):
     return render(req,'home.html')
 
+def about(req):
+    return render(req,'about.html')
+
 
 def sign(req):
     if req.method == "POST":
@@ -52,7 +55,6 @@ def sign(req):
         return redirect('login')
 
     return render(req, 'sign.html')
-
 
 # LOGIN PAGE
 
