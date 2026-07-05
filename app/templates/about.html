@@ -231,6 +231,267 @@ footer{
 }
 
 }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#081120;
+    color:white;
+    overflow-x:hidden;
+}
+
+.hero{
+
+    width:90%;
+    min-height:100vh;
+
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+
+    position:relative;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:350px;
+height:350px;
+
+background:#2563eb;
+
+border-radius:50%;
+
+filter:blur(170px);
+
+top:-80px;
+left:-100px;
+
+opacity:.5;
+
+}
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+width:350px;
+height:350px;
+
+background:#7c3aed;
+
+border-radius:50%;
+
+filter:blur(180px);
+
+right:-120px;
+bottom:-80px;
+
+opacity:.4;
+
+}
+
+.overlay{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.02),
+rgba(255,255,255,.01)
+);
+
+z-index:-1;
+
+}
+
+.hero-content{
+
+flex:1;
+
+}
+
+.tag{
+
+display:inline-block;
+
+padding:10px 20px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:40px;
+
+margin-bottom:25px;
+
+color:#60a5fa;
+
+}
+
+.hero-content h1{
+
+font-size:65px;
+
+line-height:80px;
+
+margin-bottom:25px;
+
+}
+
+.hero-content h1 span{
+
+color:#3b82f6;
+
+}
+
+.hero-content p{
+
+font-size:18px;
+
+line-height:34px;
+
+color:#cbd5e1;
+
+margin-bottom:40px;
+
+max-width:600px;
+
+}
+
+.hero-btn{
+
+display:flex;
+
+gap:20px;
+
+}
+
+.btn1{
+
+background:#2563eb;
+
+padding:16px 35px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+color:white;
+
+transition:.4s;
+
+}
+
+.btn2{
+
+background:transparent;
+
+padding:16px 35px;
+
+border-radius:50px;
+
+border:2px solid white;
+
+text-decoration:none;
+
+color:white;
+
+transition:.4s;
+
+}
+
+.btn1:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 10px 25px #2563eb;
+
+}
+
+.btn2:hover{
+
+background:white;
+
+color:#111;
+
+}
+
+.hero-image{
+
+flex:1;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.hero-image img{
+
+width:100%;
+
+max-width:550px;
+
+border-radius:25px;
+
+box-shadow:0 30px 70px rgba(0,0,0,.5);
+
+transition:.5s;
+
+}
+
+.hero-image img:hover{
+
+transform:scale(1.04);
+
+}
+
+@media(max-width:900px){
+
+.hero{
+
+flex-direction:column;
+
+text-align:center;
+
+padding:100px 0;
+
+}
+
+.hero-content h1{
+
+font-size:45px;
+line-height:58px;
+
+}
+
+.hero-btn{
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+}
 
 </style>
 
@@ -343,6 +604,47 @@ create a modern website together.
 </p>
 
 <a href="#">Contact Us</a>
+
+</section>
+<section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="tag">🚀 Premium Web Solutions</span>
+
+        <h1>
+            We Build <span>Modern</span><br>
+            Websites That Grow<br>
+            Your Business
+        </h1>
+
+        <p>
+            We create premium responsive websites using
+            HTML, CSS, JavaScript and Django with modern UI,
+            smooth animations and secure backend solutions.
+        </p>
+
+        <div class="hero-btn">
+
+            <a href="#" class="btn1">
+                Get Started
+            </a>
+
+            <a href="#" class="btn2">
+                Learn More
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900" alt="">
+
+    </div>
 
 </section>
 
